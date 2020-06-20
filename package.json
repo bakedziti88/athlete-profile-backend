@@ -1,0 +1,21 @@
+{
+  "name": "athlete-profile-backend",
+  "version": "1.0.0",
+  "description": "Backend mongo/express server for athlete profile form",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev" : "nodemon index.js"
+  },
+  "author": "David Wang",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  }
+}

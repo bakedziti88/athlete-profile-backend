@@ -3,6 +3,10 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 
 const config = require('./utils/config')
+const middleware = require('./utils/middleware')
+
+const athleteRouter = require('./controllers/athleteRouter')
+const sportsRouter = require('./controllers/sportsRouter')
 
 const app = express()
 
@@ -19,5 +23,11 @@ connect()
 
 app.use(express.json())
 app.use(morgan('tiny'))
+
+app.use('/api/athletes', athleteRouter)
+app.use('/api/sports', sportsRouter)
+
+app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
 
 module.exports = app

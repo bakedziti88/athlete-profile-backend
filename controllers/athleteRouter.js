@@ -36,8 +36,19 @@ athleteRouter.post('/', async (request, response, next) => {
     }
 })
 
+/*
+ * 
+ */
 athleteRouter.put('/:id', async (request, response, next) => {
+    try {
+        console.log('Attempting to update with: ', request.body)
+        await Athlete.update({_id: request.params.id}, request.body)
+        const updatedAthlete = await Athlete.findById(request.params.id)
 
+        response.status(200).json(updatedAthlete.toJSON())
+    } catch (e) {
+        response.status(400).send({error: 'Problem finding document. Make sure the ID is correct.'})
+    }
 })
 
 module.exports = athleteRouter

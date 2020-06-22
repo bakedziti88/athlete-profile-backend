@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const cors = require('cors')
 
 const config = require('./utils/config')
 const middleware = require('./utils/middleware')
@@ -21,6 +22,7 @@ const connect = async () => {
 
 connect()
 
+app.use(cors())
 app.use(express.json())
 app.use(morgan('tiny'))
 

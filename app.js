@@ -9,6 +9,7 @@ const athleteRouter = require('./controllers/athleteRouter')
 const sportsRouter = require('./controllers/sportsRouter')
 
 const app = express()
+app.use(express.static('app'))
 
 const connect = async () => {
     try {
@@ -20,6 +21,7 @@ const connect = async () => {
 }
 
 connect()
+
 
 app.use(cors())
 app.use(express.json())

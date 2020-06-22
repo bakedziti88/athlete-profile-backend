@@ -16,6 +16,7 @@ const connect = async () => {
         console.log('Connection to MongoDB: athlete-form successful')
     } catch (e) {
         console.error('Failed to connect with error: ', e.message)
+        process.exit(1)
     }
 }
 
